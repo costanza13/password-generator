@@ -1,7 +1,7 @@
 # Password Generator
 
 ## Purpose
-Randomly generate a password after prompring the user to choose certain criteria that will help to create a strong, secure password.
+Web app to randomly generate a password after prompring the user to choose certain criteria that will help to create a strong, secure password.
 
 
 ## How It Works
