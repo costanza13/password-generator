@@ -27,4 +27,6 @@ Web app to randomly generate a password after prompring the user to choose certa
 
 ## Screenshot
 
-![screenshot](./assets/images/password-generator.png?raw=true "Password Generator")
+<img src= "./assets/images/password-generator.png" alt="Password Generator" width="90%"/>
+
+https://costanza13.github.io/password-generator/
