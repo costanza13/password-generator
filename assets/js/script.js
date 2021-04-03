@@ -80,7 +80,7 @@ function getRandomCharacter(characterType) {
 // Get references to the #generate and #password elements
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
-var cardBody = document.querySelector(".card-body");
+var copyNotice = document.querySelector("#copy-notice");
 
 // Write password to the #password input
 function writePassword() {
@@ -91,11 +91,7 @@ function writePassword() {
   // Add event listener to password textarea
   passwordText.addEventListener("click", copyPasswordToClipboard);
 
-  var node = document.createElement("P");
-  var textnode = document.createTextNode("Click password to copy.");
-  node.appendChild(textnode);
-  node.setAttribute("id", "copy-notice");
-  cardBody.appendChild(node);
+  copyNotice.classList.remove("hidden");
 }
 
 function copyPasswordToClipboard() {
