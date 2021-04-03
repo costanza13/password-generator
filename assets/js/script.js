@@ -88,10 +88,12 @@ function writePassword() {
 
   passwordText.value = password;
 
-  // Add event listener to password textarea
-  passwordText.addEventListener("click", copyPasswordToClipboard);
-
+  // show the "click to copy" notice
   copyNotice.classList.remove("hidden");
+
+  // Add event listener to password textarea
+  copyNotice.addEventListener("click", copyPasswordToClipboard);
+
 }
 
 function copyPasswordToClipboard() {
