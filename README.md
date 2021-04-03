@@ -23,3 +23,8 @@ Randomly generate a password after prompring the user to choose certain criteria
 - The generated password is displayed in the form
 
 - Because the password can be long and may start or end with a space character, the user can click a notice to copy it to the clipboard
+
+
+## Screenshot
+
+![Alt text](./assets/images/password-generator.png?raw=true "Password Generator")
