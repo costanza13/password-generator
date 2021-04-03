@@ -4,18 +4,18 @@ function generatePassword() {
   var pwLength = getPasswordLength();
   var criteria = getCriteria();
 
-  console.log('pwLength ', pwLength);
-  console.log('criteria ', criteria);
+  //console.log('pwLength ', pwLength);
+  //console.log('criteria ', criteria);
 
   var currentType;
   for (var i = 0; i < pwLength; i++) {
     // randomly choose next character type from critera
     currentType = criteria[randomNumber(0, criteria.length - 1)];
-    console.log(currentType);
+    //console.log(currentType);
 
     // then randomly select a character of the chosen type
     password += getRandomCharacter(currentType);
-    console.log('pw: ', password);
+    //console.log('pw: ', password);
   }
 
   return password;
@@ -41,6 +41,7 @@ function getCriteria() {
     if (window.confirm("Include special characters?")) {
       criteria.push('special');
     }
+    criteria.length == 0 && window.alert("You must select at least one character type -- the more the better!");
   }
 
   return criteria;
@@ -52,7 +53,7 @@ function getPasswordLength() {
   while (isNaN(length) || length < 8 || length > 128) {
     length = window.prompt("Please enter a length for your password between 8 and 128 characters.");
     length = parseInt(length);
-    console.log("length input: ", length);
+    //console.log("length input: ", length);
   }
 
   return length;
@@ -76,16 +77,36 @@ function getRandomCharacter(characterType) {
   }
 }
 
-// Get references to the #generate element
+// Get references to the #generate and #password elements
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password");
+var cardBody = document.querySelector(".card-body");
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+  // Add event listener to password textarea
+  passwordText.addEventListener("click", copyPasswordToClipboard);
+
+  var node = document.createElement("P");
+  var textnode = document.createTextNode("Click password to copy.");
+  node.appendChild(textnode);
+  node.setAttribute("id", "copy-notice");
+  cardBody.appendChild(node);
+}
+
+function copyPasswordToClipboard() {
+  passwordText.select();
+  passwordText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  window.alert("Password copied the clipboard.");
 }
 
 // Add event listener to generate button
