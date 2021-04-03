@@ -124,6 +124,10 @@ button[disabled] {
   text-align: center;
 }
 
+#copy-notice:hover {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
